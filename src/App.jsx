@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import Features from './components/Features'
 import Pricing from './components/Pricing'
 import FAQ from './components/FAQ'
+import Scroll3D from './components/Scroll3D'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
 
       <Navbar />
       <Hero />
+      <Scroll3D />
       <Features />
       <Pricing />
       <FAQ />
