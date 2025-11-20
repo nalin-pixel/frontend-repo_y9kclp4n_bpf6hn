@@ -43,7 +43,7 @@ export default function SectionConnector() {
         className="absolute inset-0 w-[200vw] h-full -left-[50vw]"
         viewBox="0 0 1920 240"
         preserveAspectRatio="none"
-        style={{ filter: glow, rotateZ: wobble }}
+        style={{ filter: glow, rotate: wobble }}
       >
         <defs>
           <linearGradient id="ribbon" x1="0%" y1="0%" x2="100%" y2="0%">
