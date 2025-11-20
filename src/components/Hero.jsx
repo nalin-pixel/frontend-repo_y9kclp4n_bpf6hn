@@ -1,15 +1,13 @@
-import Spline from '@splinetool/react-spline'
 import { motion } from 'framer-motion'
+import SafeSpline from './SafeSpline'
 
 export default function Hero() {
   return (
     <section className="relative min-h-[90vh] pt-28 overflow-hidden">
-      {/* 3D scene */}
       <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/4HIlOdlXYYkZW66z/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        <SafeSpline scene="https://prod.spline.design/4HIlOdlXYYkZW66z/scene.splinecode" className="w-full h-full" style={{ width: '100%', height: '100%' }} />
       </div>
 
-      {/* Gradient overlays */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/20 to-slate-950"></div>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-blue-600/20 via-transparent to-cyan-500/20"></div>
 

@@ -1,6 +1,6 @@
-import Spline from '@splinetool/react-spline'
 import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motion'
 import { useRef } from 'react'
+import SafeSpline from './SafeSpline'
 
 export default function SplineScroll() {
   const ref = useRef(null)
@@ -13,7 +13,7 @@ export default function SplineScroll() {
   return (
     <section ref={ref} className="relative min-h-[80vh] overflow-hidden">
       <motion.div style={{ y, opacity, filter }} className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/4HIlOdlXYYkZW66z/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        <SafeSpline scene="https://prod.spline.design/4HIlOdlXYYkZW66z/scene.splinecode" className="w-full h-full" style={{ width: '100%', height: '100%' }} />
       </motion.div>
 
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950" />
