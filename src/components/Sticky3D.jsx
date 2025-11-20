@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useMotionTemplate } from 'framer-motion'
 import { Shield, Lock, Globe2 } from 'lucide-react'
 import { useRef } from 'react'
 
@@ -22,12 +22,13 @@ export default function Sticky3D() {
   const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], [-16, 0, 16])
   const translateZ = useTransform(scrollYProgress, [0, 0.5, 1], [-80, 40, -80])
   const glow = useTransform(scrollYProgress, [0, 0.5, 1], [0.25, 0.55, 0.25])
-  const hue = useTransform(scrollYProgress, [0, 1], [190, 210])
+  const hueVal = useTransform(scrollYProgress, [0, 1], [190, 210])
+  const hueFilter = useMotionTemplate`hue-rotate(${hueVal}deg)`
 
   return (
     <section className="relative" ref={ref}>
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div style={{ filter: hue.to(h => `hue-rotate(${h}deg)`), opacity: glow }} className="absolute -top-20 right-0 w-80 h-80 rounded-full bg-cyan-500/20 blur-3xl" />
+        <motion.div style={{ filter: hueFilter, opacity: glow }} className="absolute -top-20 right-0 w-80 h-80 rounded-full bg-cyan-500/20 blur-3xl" />
         <motion.div style={{ opacity: glow }} className="absolute bottom-10 -left-10 w-72 h-72 rounded-full bg-blue-600/20 blur-3xl" />
       </div>
 
