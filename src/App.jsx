@@ -1,9 +1,11 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Features from './components/Features'
-import Pricing from './components/Pricing'
 import FAQ from './components/FAQ'
 import Scroll3D from './components/Scroll3D'
+import Sticky3D from './components/Sticky3D'
+import SplineScroll from './components/SplineScroll'
+import PricingFlip from './components/PricingFlip'
 
 function App() {
   return (
@@ -13,9 +15,22 @@ function App() {
 
       <Navbar />
       <Hero />
+
+      {/* Scroll-driven 3D content */}
       <Scroll3D />
+      <Sticky3D />
+      <SplineScroll />
+
+      {/* Features and Pricing with 3D flip reveal */}
       <Features />
-      <Pricing />
+      <section id="pricing" className="relative py-12">
+        <div className="text-center max-w-2xl mx-auto px-6 lg:px-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">Scegli il tuo piano</h2>
+          <p className="mt-4 text-blue-200/80">Tutti i piani includono dati illimitati, nessun log e accesso a tutta la rete globale.</p>
+        </div>
+        <PricingFlip />
+      </section>
+
       <FAQ />
 
       <footer className="relative border-t border-white/10">
