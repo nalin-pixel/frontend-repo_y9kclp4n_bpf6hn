@@ -7,11 +7,14 @@ import Sticky3D from './components/Sticky3D'
 import SplineScroll from './components/SplineScroll'
 import PricingFlip from './components/PricingFlip'
 import ErrorBoundary from './components/ErrorBoundary'
+import BackgroundSpline from './components/BackgroundSpline'
 
 function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <div className="fixed inset-0 pointer-events-none [background-image:linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px]" />
+
+      <BackgroundSpline />
 
       <ErrorBoundary>
         <Navbar />
