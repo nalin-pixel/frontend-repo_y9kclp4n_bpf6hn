@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import Spline from '@splinetool/react-spline'
 
 export default function SafeSpline({ scene, className = '', style = {} }) {
@@ -6,9 +6,13 @@ export default function SafeSpline({ scene, className = '', style = {} }) {
   const [failed, setFailed] = useState(false)
 
   useEffect(() => {
-    // Ensure client-only render for WebGL
     const t = setTimeout(() => setCanRender(true), 0)
     return () => clearTimeout(t)
+  }, [])
+
+  const handleError = useCallback((e) => {
+    console.error('[SafeSpline] Load error:', e)
+    setFailed(true)
   }, [])
 
   if (failed) {
@@ -30,12 +34,7 @@ export default function SafeSpline({ scene, className = '', style = {} }) {
     )
   }
 
-  try {
-    return (
-      <Spline scene={scene} className={className} style={style} onError={() => setFailed(true)} />
-    )
-  } catch (_e) {
-    setFailed(true)
-    return null
-  }
+  return (
+    <Spline scene={scene} className={className} style={style} onError={handleError} />
+  )
 }

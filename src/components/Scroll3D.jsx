@@ -10,6 +10,7 @@ function Card3D({ icon: Icon, title, desc, gradient }) {
   const rotateY = useTransform(scrollYProgress, [0, 1], [-8, 8])
   const translateZ = useTransform(scrollYProgress, [0, 0.5, 1], [0, 60, 0])
   const shadow = useTransform(scrollYProgress, [0, 0.5, 1], [0.2, 0.45, 0.2])
+  const boxShadow = useTransform(shadow, (v) => `0 12px 40px rgba(0,0,0,${v})`)
 
   return (
     <div ref={ref} className="relative py-24">
@@ -38,7 +39,7 @@ function Card3D({ icon: Icon, title, desc, gradient }) {
               {[1, 2, 3].map((i) => (
                 <motion.div
                   key={i}
-                  style={{ boxShadow: shadow.to(v => `0 12px 40px rgba(0,0,0,${v})`) }}
+                  style={{ boxShadow }}
                   className="rounded-xl bg-slate-900/60 border border-white/10 p-5"
                 >
                   <p className="text-white/80">Layer {i}</p>
